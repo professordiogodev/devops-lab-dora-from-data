@@ -23,7 +23,7 @@ while day < 90:
             lead = r.uniform(14, 44) if second_half else r.uniform(90, 260)
             commit = deploy - dt.timedelta(hours=lead)
             failed = r.random() < (0.08 if second_half else 0.18)
-            dep.append((f"D{did:03d}", "clipstr-api", commit.strftime(F), deploy.strftime(F), "failed" if failed else "success"))
+            dep.append((f"D{did:03d}", "clippy-api", commit.strftime(F), deploy.strftime(F), "failed" if failed else "success"))
             if failed:
                 iid += 1
                 restore = r.uniform(0.8, 6) if second_half else r.uniform(6, 40)
