@@ -1,6 +1,4 @@
-# DevOps Metrics: What Does Our Data Say?
-
-The CTO says "we ship fast". The data says something else. Calculate the four DORA metrics and the Kanban bottleneck from 90 days of real-looking data, then tell the team what to fix first.
+<p align="center"><img src="assets/banner.svg" alt="DevOps Metrics: What Does Our Data Say?" width="100%"></p>
 
 | | |
 |-|-|
@@ -17,9 +15,10 @@ The CTO says "we ship fast". The data says something else. Calculate the four DO
 5. Commit and push. Open the **Actions** tab of your fork (click *I understand my workflows, go ahead and enable them* the first time). The **Lab check** shows what is still missing.
 6. When the check is green, **submit the URL of your fork** in the course platform.
 
+> [!NOTE]
 > The check only looks at your answers and any files the lab asks you to commit. Your instructor reads your work and may ask you to explain any line.
 
----
+<p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
 ## The situation
 
@@ -27,6 +26,7 @@ The CTO opens the quarterly review with a slide: *"We ship fast."* The head of Q
 
 You have 90 days of delivery data: every deployment, every incident, every ticket's journey from "work started" to "in production". Your job is to replace opinions with measurements, with the four **DORA metrics** and a **Kanban flow analysis**, and to tell the team where to look first.
 
+> [!IMPORTANT]
 > **Your mission**
 > - Compute the four DORA metrics from raw CSV files and place the team on the performance scale
 > - Find the bottleneck stage of the flow from ticket timestamps
@@ -35,7 +35,7 @@ You have 90 days of delivery data: every deployment, every incident, every ticke
 
 **Time:** 60-75 min | **Cost:** free | **You need:** Python 3
 
----
+<p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
 ## Part 0 - Set the scene
 
@@ -49,7 +49,7 @@ Fork this repository and clone your fork. The data is in `data/`:
 
 All timestamps look like `2026-08-01 09:30`. The data starts on **2026-08-01 at 00:00** and covers 90 days.
 
----
+<p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
 ## Part 1 - Recon: look before you calculate
 
@@ -58,9 +58,10 @@ All timestamps look like `2026-08-01 09:30`. The data starts on **2026-08-01 at 
 3. Pick one ticket and trace it: `created`, `work_started`, `review_started`, `merged`, `deployed`. Where did it spend the most time?
 4. What does `status=failed` mean for the customer? How does this connect to `incidents.csv`?
 
+> [!NOTE]
 > **Predict** Without any calculation, write down your gut feeling: how often does the team deploy, how long do changes wait, how many deployments fail, how fast does the team recover? Compare with the numbers later.
 
----
+<p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
 ## Part 2 - The four metrics
 
@@ -107,9 +108,10 @@ bottleneck review
 - `first` = days 0-44 and `second` = days 45-89 counted from 2026-08-01. Filter deployments by `deploy_time` and tickets by `deployed`; each half is 45 days = 45/7 weeks.
 - A missing folder: print an error to stderr and exit with a non-zero code.
 
+> [!TIP]
 > **Checkpoint** Print the numbers for the whole period and compare with your Part 1 gut feeling. Which one surprised you?
 
----
+<p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
 ## Part 3 - Reading the flow
 
@@ -117,9 +119,10 @@ Look at the three stage medians. Little's Law says: **cycle time = work in progr
 
 Count it from the data for one date: how many tickets are in `review` (between `review_started` and `merged`) on 2026-09-15 at noon? You can do it in a few lines of Python or a spreadsheet. If that number is big, a **WIP limit** on the review column would force the team to finish reviews before starting new work.
 
+> [!NOTE]
 > **Think** Propose a WIP limit for review. What do you expect to happen to the review wait? What is the cost to developers who would otherwise start a new ticket?
 
----
+<p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
 ## Part 4 - Before and after
 
@@ -132,9 +135,10 @@ python3 dora.py data second
 
 For each of the four metrics, write whether it improved and by how much. What do you think the team changed? (Hint: look at which metrics moved the most and think about what would cause that.) Which metric moved the **least**, and why would that be harder to improve?
 
+> [!WARNING]
 > **Break it** A manager says: "Great, deployments went up eight times, so we should now require 20 deployments a week." Use the change failure rate and the restore time to argue what could go wrong when the number is chased instead of the outcome.
 
----
+<p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
 ## Part 5 - Prove it
 
@@ -144,7 +148,7 @@ python3 verify.py
 
 It compares your output with an independent reference on your data (all three periods) **and on a dataset it generates just now**, so hard-coded numbers fail.
 
----
+<p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
 ## Level up (optional)
 
