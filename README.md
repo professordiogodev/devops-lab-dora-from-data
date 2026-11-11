@@ -22,7 +22,7 @@
 
 ## 🎬 The situation
 
-<p align="center"><img src="assets/gifs/situation.gif" width="300" alt=""></p>
+<p align="center"><img src="assets/gifs/situation.gif" width="300" alt="Animation: 90 days of data"></p>
 
 The CTO opens the quarterly review with a slide: *"We ship fast."* The head of QA says *"We break production every other release."* The team lead says *"Review is the thing that slows us down."* Everyone has an opinion, nobody has numbers.
 
@@ -55,7 +55,7 @@ All timestamps look like `2026-08-01 09:30`. The data starts on **2026-08-01 at 
 
 ## Part 1 - Recon: look before you calculate
 
-<p align="center"><img src="assets/gifs/recon.gif" width="300" alt=""></p>
+<p align="center"><img src="assets/gifs/recon.gif" width="300" alt="Animation: gut vs data"></p>
 
 1. Open the three files. How many rows has each? (`wc -l`)
 2. Pick one deployment. What was its `commit_time` and `deploy_time`? How long did the change wait? Does it have an incident?
@@ -146,7 +146,7 @@ For each of the four metrics, write whether it improved and by how much. What do
 
 ## Part 5 - Prove it
 
-<p align="center"><img src="assets/gifs/verify.gif" width="300" alt=""></p>
+<p align="center"><img src="assets/gifs/verify.gif" width="300" alt="A terminal running the lab&#x27;s verify script and printing PASS lines, ending with ALL CHECKS PASSED"></p>
 
 ```bash
 python3 verify.py
