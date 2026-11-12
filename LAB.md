@@ -2,9 +2,15 @@
 
 ## The situation
 
-The CTO opens the quarterly review with a slide: *"We ship fast."* The head of QA says *"We break production every other release."* The team lead says *"Review is the thing that slows us down."* Everyone has an opinion, nobody has numbers.
+```text
+QUARTERLY REVIEW - claims to check
+CTO          : "We ship fast."
+Head of QA   : "We break production every other release."
+Team lead    : "Review is the thing that slows us down."
+Evidence     : none yet. Everyone has an opinion.
+```
 
-You have 90 days of delivery data: every deployment, every incident, every ticket's journey from "work started" to "in production". Your job is to replace opinions with measurements, with the four **DORA metrics** and a **Kanban flow analysis**, and to tell the team where to look first.
+You are the fact-checker. You have 90 days of delivery data: every deployment, every incident, every ticket's journey from "work started" to "in production". Replace opinions with measurements: the four **DORA metrics** and a **Kanban flow analysis**. For each claim, say true, false or not enough data, and tell the team where to look first.
 
 > **Your mission**
 > - Compute the four DORA metrics from raw CSV files and place the team on the performance scale
